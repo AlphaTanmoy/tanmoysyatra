@@ -87,6 +87,10 @@ button {
   font: inherit;
 }
 
+select {
+  font: inherit;
+}
+
 button:focus-visible,
 a:focus-visible {
   outline: 3px solid var(--ring);
@@ -101,6 +105,25 @@ header {
   background: color-mix(in srgb, var(--surface) 88%, transparent);
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.42) inset;
   backdrop-filter: blur(16px) saturate(140%);
+}
+
+footer {
+  border-top: 1px solid color-mix(in srgb, var(--border) 82%, transparent);
+  background:
+    linear-gradient(180deg, #eef3f7 0%, #e4ebf2 100%),
+    #e4ebf2;
+  box-shadow:
+    0 -1px 0 rgba(255, 255, 255, 0.72) inset,
+    0 -18px 45px rgba(18, 24, 38, 0.05);
+}
+
+html.dark footer {
+  background:
+    linear-gradient(180deg, #0f1724 0%, #080d16 100%),
+    #080d16;
+  box-shadow:
+    0 -1px 0 rgba(255, 255, 255, 0.06) inset,
+    0 -18px 45px rgba(0, 0, 0, 0.28);
 }
 
 main {
@@ -192,6 +215,35 @@ iframe {
 
 .rounded-2xl {
   border-radius: 1.25rem;
+}
+
+.filter-select {
+  appearance: none;
+  background:
+    linear-gradient(45deg, transparent 50%, var(--muted-strong) 50%) calc(100% - 18px) 50% / 6px 6px no-repeat,
+    linear-gradient(135deg, var(--muted-strong) 50%, transparent 50%) calc(100% - 13px) 50% / 6px 6px no-repeat,
+    color-mix(in srgb, var(--surface) 96%, transparent);
+  border-color: color-mix(in srgb, var(--border) 88%, var(--accent) 12%);
+  box-shadow: 0 10px 24px rgba(18, 24, 38, 0.06);
+  min-height: 2.65rem;
+  padding-right: 2.5rem;
+  transition: border-color 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+}
+
+.filter-select:hover {
+  border-color: color-mix(in srgb, var(--border) 62%, var(--accent) 38%);
+  box-shadow: 0 14px 30px rgba(18, 24, 38, 0.10);
+}
+
+.filter-select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px var(--ring), 0 14px 30px rgba(18, 24, 38, 0.10);
+  outline: none;
+}
+
+.filter-select option {
+  background: var(--surface);
+  color: var(--foreground);
 }
 
 .prose {

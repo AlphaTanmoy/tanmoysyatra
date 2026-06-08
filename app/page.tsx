@@ -1,6 +1,6 @@
-import Link from "next/link";
 import Image from "next/image";
-import { getAllPosts, type Post } from "./posts";
+import BlogPostList from "./components/BlogPostList";
+import { getAllPosts } from "./posts";
 
 export default function HomePage() {
   const posts = getAllPosts();
@@ -47,10 +47,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="mb-5">
-        <h2 className="text-2xl font-semibold tracking-tight">The Blog List</h2>
-      </section>
-
       {posts.length === 0 ? (
         <div className="py-24 text-center">
           <p className="text-lg text-slate-500">No blog posts found.</p>
@@ -59,53 +55,7 @@ export default function HomePage() {
           </p>
         </div>
       ) : (
-        <div className="space-y-6">
-          {Object.entries(
-            posts.reduce((acc: Record<string, Post[]>, post) => {
-              (acc[post.category] ||= []).push(post);
-              return acc;
-            }, {})
-          ).map(([category, items]) => (
-            <section key={category} className="rounded-xl border bg-card p-4 sm:p-5">
-              <h3 className="mb-4 text-2xl font-semibold tracking-tight">{category}</h3>
-              <div className="space-y-3">
-                {items
-                  .sort(
-                    (a, b) =>
-                      new Date(b.date || 0).getTime() -
-                      new Date(a.date || 0).getTime()
-                  )
-                  .map((post) => (
-                    <Link key={post.slug} href={`/blog/${post.slug}`}>
-                      <article className="cursor-pointer rounded-xl border bg-card p-4 transition-shadow hover:shadow-lg sm:p-5">
-                        <div className="flex flex-col gap-2">
-                          <div className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between">
-                            <h4 className="text-lg font-semibold leading-snug">
-                              {post.title || post.slug}
-                            </h4>
-                            <span className="shrink-0 text-sm text-slate-500">
-                              {post.date}
-                            </span>
-                          </div>
-                          {post.excerpt ? (
-                            <p className="text-sm leading-6 text-slate-600">
-                              {post.excerpt.slice(0, 150)}
-                              {post.excerpt.length > 150 ? "..." : ""}
-                            </p>
-                          ) : null}
-                          <div className="mt-2">
-                            <span className="inline-block rounded-full bg-blue-100 px-3 py-1 text-sm font-medium text-blue-700 dark:bg-blue-900 dark:text-blue-200">
-                              View Full Content
-                            </span>
-                          </div>
-                        </div>
-                      </article>
-                    </Link>
-                  ))}
-              </div>
-            </section>
-          ))}
-        </div>
+        <BlogPostList posts={posts} />
       )}
 
       <section className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-3">

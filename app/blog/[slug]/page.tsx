@@ -4,14 +4,23 @@ import matter from "gray-matter";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
-function parseMarkdownSafe(fileContent: string) {
+type ParsedPost = {
+  data: Record<string, unknown>;
+  content: string;
+};
+
+function parseMarkdownSafe(fileContent: string): ParsedPost {
   try {
-    return matter(fileContent);
+    const parsed = matter(fileContent);
+    return {
+      data: parsed.data as Record<string, unknown>,
+      content: parsed.content,
+    };
   } catch {
     const fmMatch = fileContent.match(/^---\s*\r?\n([\s\S]*?)\r?\n---\s*\r?\n?/);
     const fmRaw = fmMatch ? fmMatch[1] : "";
     const body = fmMatch ? fileContent.slice(fmMatch[0].length) : fileContent;
-    const data: Record<string, any> = {};
+    const data: Record<string, unknown> = {};
     const lines = fmRaw.split(/\r?\n/);
     let i = 0;
 
@@ -65,7 +74,7 @@ export default async function BlogPage({
     path.join(process.cwd(), "content")
   );
 
-  let post = null;
+  let post: ParsedPost | null = null;
 
   for (const category of categories) {
     const filePath = path.join(
@@ -81,7 +90,7 @@ export default async function BlogPage({
         "utf8"
       );
 
-post = parseMarkdownSafe(fileContent);
+      post = parseMarkdownSafe(fileContent);
 
       break;
     }
@@ -115,22 +124,24 @@ post = parseMarkdownSafe(fileContent);
   })();
 
   return (
-    <main className="max-w-4xl mx-auto p-6">
-      <div className="bg-card border rounded-lg p-6 space-y-6">
-        <h1 className="text-5xl font-bold mb-4">{post.data.title}</h1>
-        <div className="bg-card border border-slate-200 rounded-2xl p-4">
+    <main className="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+      <div className="space-y-6 rounded-xl border bg-card p-5 sm:p-7">
+        <h1 className="mb-4 text-4xl font-bold leading-tight tracking-tight sm:text-5xl">
+          {String(post.data.title || slug)}
+        </h1>
+        <div className="rounded-2xl border border-slate-200 bg-card p-4">
           <div className="flex flex-wrap items-center gap-3">
-            <span className="inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-sm text-slate-700">
-              {post.data.category || "Blog"}
+            <span className="inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-sm font-medium text-slate-700">
+              {String(post.data.category || "Blog")}
             </span>
             {post.data.author ? (
-              <span className="text-sm text-slate-500">By {post.data.author}</span>
+              <span className="text-sm text-slate-500">By {String(post.data.author)}</span>
             ) : null}
             <span className="text-sm text-slate-500">{String(post.data.date)}</span>
           </div>
         </div>
         {youtubeUrl ? (
-          <div className="aspect-video overflow-hidden rounded-xl border border-slate-200 bg-black">
+          <div className="aspect-video overflow-hidden rounded-xl border border-slate-200 bg-black shadow-md">
             <iframe
               className="h-full w-full"
               src={youtubeUrl}

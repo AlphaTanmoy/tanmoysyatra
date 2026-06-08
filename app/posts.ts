@@ -10,7 +10,7 @@ export type Post = {
   title?: string;
   date?: string;
   excerpt?: string;
-  [key: string]: any;
+  [key: string]: unknown;
 };
 
 export function getAllPosts(): Post[] {
@@ -38,18 +38,18 @@ export function getAllPosts(): Post[] {
 
       const fileContent = fs.readFileSync(filePath, "utf8");
 
-      let parsed: { data: Record<string, any>; content: string };
+      let parsed: { data: Record<string, unknown>; content: string };
       try {
         parsed = matter(fileContent) as {
-          data: Record<string, any>;
+          data: Record<string, unknown>;
           content: string;
         };
-      } catch (e) {
+      } catch {
         // Fallback: lenient frontmatter parsing to handle non-standard lists (e.g., lines starting with '*')
         const fmMatch = fileContent.match(/^---\s*\r?\n([\s\S]*?)\r?\n---\s*\r?\n?/);
         const fmRaw = fmMatch ? fmMatch[1] : "";
         const body = fmMatch ? fileContent.slice(fmMatch[0].length) : fileContent;
-        const data: Record<string, any> = {};
+        const data: Record<string, unknown> = {};
         const lines = fmRaw.split(/\r?\n/);
         let i = 0;
         while (i < lines.length) {

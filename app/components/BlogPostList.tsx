@@ -1,5 +1,6 @@
 "use client";
 
+import { Check, ChevronDown } from "lucide-react";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 
@@ -13,6 +14,73 @@ type BlogPost = {
 
 type DateSort = "desc" | "asc";
 
+type DropdownOption = {
+  label: string;
+  value: string;
+};
+
+function FilterDropdown({
+  label,
+  value,
+  options,
+  onChange,
+}: {
+  label: string;
+  value: string;
+  options: DropdownOption[];
+  onChange: (value: string) => void;
+}) {
+  const [open, setOpen] = useState(false);
+  const selected = options.find((option) => option.value === value) || options[0];
+
+  return (
+    <div className="relative flex flex-col gap-1 text-sm font-medium text-slate-700">
+      <span>{label}</span>
+      <button
+        type="button"
+        aria-haspopup="listbox"
+        aria-expanded={open}
+        onClick={() => setOpen((current) => !current)}
+        onBlur={() => window.setTimeout(() => setOpen(false), 120)}
+        className="filter-menu-trigger"
+      >
+        <span>{selected.label}</span>
+        <ChevronDown
+          aria-hidden
+          size={16}
+          className={`transition-transform ${open ? "rotate-180" : ""}`}
+        />
+      </button>
+
+      {open ? (
+        <div className="filter-menu" role="listbox">
+          {options.map((option) => {
+            const active = option.value === value;
+
+            return (
+              <button
+                key={option.value}
+                type="button"
+                role="option"
+                aria-selected={active}
+                onMouseDown={(event) => event.preventDefault()}
+                onClick={() => {
+                  onChange(option.value);
+                  setOpen(false);
+                }}
+                className={`filter-menu-option ${active ? "is-active" : ""}`}
+              >
+                <span>{option.label}</span>
+                {active ? <Check aria-hidden size={15} /> : null}
+              </button>
+            );
+          })}
+        </div>
+      ) : null}
+    </div>
+  );
+}
+
 export default function BlogPostList({ posts }: { posts: BlogPost[] }) {
   const categories = useMemo(
     () => Array.from(new Set(posts.map((post) => post.category))).sort(),
@@ -20,6 +88,17 @@ export default function BlogPostList({ posts }: { posts: BlogPost[] }) {
   );
   const [category, setCategory] = useState("all");
   const [dateSort, setDateSort] = useState<DateSort>("desc");
+  const categoryOptions = useMemo(
+    () => [
+      { label: "All categories", value: "all" },
+      ...categories.map((item) => ({ label: item, value: item })),
+    ],
+    [categories]
+  );
+  const dateOptions = [
+    { label: "Newest first", value: "desc" },
+    { label: "Oldest first", value: "asc" },
+  ];
 
   const visiblePosts = useMemo(() => {
     return [...posts]
@@ -52,33 +131,19 @@ export default function BlogPostList({ posts }: { posts: BlogPost[] }) {
           </div>
 
           <div className="grid gap-3 sm:grid-cols-[minmax(10rem,1fr)_minmax(10rem,1fr)_auto]">
-            <label className="flex flex-col gap-1 text-sm font-medium text-slate-700">
-              Category
-              <select
-                value={category}
-                onChange={(event) => setCategory(event.target.value)}
-                className="filter-select rounded-lg border bg-card px-3 py-2 text-sm text-slate-700"
-              >
-                <option value="all">All categories</option>
-                {categories.map((item) => (
-                  <option key={item} value={item}>
-                    {item}
-                  </option>
-                ))}
-              </select>
-            </label>
+            <FilterDropdown
+              label="Category"
+              value={category}
+              options={categoryOptions}
+              onChange={setCategory}
+            />
 
-            <label className="flex flex-col gap-1 text-sm font-medium text-slate-700">
-              Date
-              <select
-                value={dateSort}
-                onChange={(event) => setDateSort(event.target.value as DateSort)}
-                className="filter-select rounded-lg border bg-card px-3 py-2 text-sm text-slate-700"
-              >
-                <option value="desc">Newest first</option>
-                <option value="asc">Oldest first</option>
-              </select>
-            </label>
+            <FilterDropdown
+              label="Date"
+              value={dateSort}
+              options={dateOptions}
+              onChange={(value) => setDateSort(value as DateSort)}
+            />
 
             <button
               type="button"

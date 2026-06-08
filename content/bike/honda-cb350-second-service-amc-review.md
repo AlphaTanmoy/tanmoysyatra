@@ -5,17 +5,19 @@ date: "2026-06-08"
 category: "Motorcycles"
 author: "Tanmoy"
 cover: "/images/honda-cb350-second-service.jpg"
+youtube: "https://youtu.be/I4YTqMhppr8"
 tags:
-
-* Honda CB350
-* Honda BigWing
-* AMC
-* Motorcycle Maintenance
-* Bike Service
+  - Honda CB350
+  - Honda BigWing
+  - AMC
+  - Motorcycle Maintenance
+  - Bike Service
 
 ---
 
 # Honda CB350 2nd Service Complete – Is the ₹8,592 AMC Worth It?
+
+Watch the full service walkthrough on YouTube: [https://youtu.be/I4YTqMhppr8](https://youtu.be/I4YTqMhppr8)
 
 After completing the second free service of my Honda CB350 at Honda BigWing, I decided to share the complete service experience, maintenance work performed, actual costs involved, and whether the 2-Year Annual Maintenance Contract (AMC) priced at ₹8,592 makes financial sense for long-term ownership.
 

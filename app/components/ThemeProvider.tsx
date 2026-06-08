@@ -4,7 +4,7 @@ import React from "react";
 
 export default function ClientThemeProvider({ children }: { children: React.ReactNode }) {
   return (
-    <ThemeProvider attribute="class" defaultTheme="system">
+    <ThemeProvider attribute="class" defaultTheme="system" enableSystem={true} storageKey="theme">
       {children}
     </ThemeProvider>
   );

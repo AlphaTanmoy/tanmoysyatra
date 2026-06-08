@@ -27,7 +27,14 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body suppressHydrationWarning className="min-h-full flex flex-col">
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var el=document.getElementById('pronounceRootElement');if(el)el.remove();document.querySelectorAll('.pronounceRootElementItem').forEach(function(n){n.remove()});document.querySelectorAll('audio').forEach(function(a){try{if(a && a.style && a.style.position==='fixed')a.remove()}catch(e){}});}catch(e){} })();`,
+          }}
+        />
+        {children}
+      </body>
     </html>
   );
 }

@@ -34,7 +34,7 @@ export default function Footer() {
           <div className="mt-4 flex rounded-2xl border bg-card p-3">
             <Image
               src="/logo.ico"
-              alt="Tanmoy's Blog logo"
+              alt="Tanmoy&apos;s Yatra logo"
               width={56}
               height={56}
               className="h-14 w-14 rounded-xl"

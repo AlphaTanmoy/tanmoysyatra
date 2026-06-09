@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Tanmoy's Blog",
+  title: "Tanmoy's Yatra",
   description: "Personal blog",
   icons: {
     icon: "/logo.ico",

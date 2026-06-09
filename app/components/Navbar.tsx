@@ -19,7 +19,7 @@ export default function Navbar() {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex flex-col sm:flex-row sm:items-center justify-between">
         <div className="flex w-full sm:w-auto items-center justify-between gap-4">
           <Link href="/" className="text-xl font-bold tracking-tight">
-            Tanmoy&apos;s Blog
+            Tanmoy&apos;s Yatra
           </Link>
           <div className="sm:hidden">
             <ThemeToggle />

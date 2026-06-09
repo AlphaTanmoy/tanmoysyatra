@@ -328,6 +328,7 @@ iframe {
   font-size: 1.05rem;
   line-height: 1.78;
   max-width: 100%;
+  overflow-wrap: anywhere;
 }
 
 .prose p {
@@ -367,6 +368,7 @@ iframe {
 .prose a {
   color: var(--accent-strong);
   font-weight: 650;
+  overflow-wrap: anywhere;
   text-decoration: underline;
   text-decoration-thickness: 0.08em;
   text-underline-offset: 0.18em;

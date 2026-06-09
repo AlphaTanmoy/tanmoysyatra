@@ -16,58 +16,43 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(
+    "https://blog.tanmoysyatraofficial.store"
+  ),
+
   title: {
     default: "Tanmoy's Yatra",
     template: "%s | Tanmoy's Yatra",
   },
 
   description:
-    "Travel blogs, bike rides, temple visits, road trips, and spiritual journeys across India by Tanmoy Das.",
+    "Travel blogs, bike rides, temple visits, road trips and spiritual journeys across India.",
 
   keywords: [
     "Tanmoy's Yatra",
     "Travel Blog",
     "Bike Ride",
     "Moto Vlog",
-    "Travel India",
-    "Temple Travel",
     "West Bengal Tourism",
-    "Road Trip",
+    "Temple Travel",
+    "Travel India",
     "Motorcycle Touring",
-    "Shiva Temple",
-    "Travel Guide",
   ],
 
-  authors: [{ name: "Tanmoy Das" }],
-
-  creator: "Tanmoy Das",
-
-  metadataBase: new URL("https://blog.tanmoysyatraofficial.store"),
+  authors: [
+    {
+      name: "Tanmoy Das",
+    },
+  ],
 
   openGraph: {
     title: "Tanmoy's Yatra",
     description:
-      "Travel blogs, bike rides, temple visits, and spiritual journeys across India.",
+      "Travel blogs, bike rides, temple visits and spiritual journeys across India.",
+    type: "website",
     url: "https://blog.tanmoysyatraofficial.store",
     siteName: "Tanmoy's Yatra",
     locale: "en_IN",
-    type: "website",
-    images: [
-      {
-        url: "/homeThumbnail.png",
-        width: 1200,
-        height: 630,
-        alt: "Tanmoy's Yatra",
-      },
-    ],
-  },
-
-  twitter: {
-    card: "summary_large_image",
-    title: "Tanmoy's Yatra",
-    description:
-      "Travel blogs, bike rides, temple visits, and spiritual journeys across India.",
-    images: ["/homeThumbnail.png"],
   },
 
   robots: {

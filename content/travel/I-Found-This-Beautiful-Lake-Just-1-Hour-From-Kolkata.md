@@ -2,7 +2,7 @@
 
 title: "I Found This Beautiful Lake Just 1 Hour From Kolkata"
 date: "2026-06-08"
-category: "Motorcycles"
+category: "Travel"
 author: "Tanmoy"
 cover: "/images/honda-cb350-second-service.jpg"
 youtube: "https://youtu.be/SsS9yD2jCLk"

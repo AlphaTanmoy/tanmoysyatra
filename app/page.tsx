@@ -7,13 +7,25 @@ export default function HomePage() {
 
   return (
     <main className="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
-      <h1 className="mb-4 text-4xl font-bold tracking-tight sm:text-5xl">
-        Tanmoy&apos;s Blog
+      <h1 className="mb-3 text-4xl font-bold tracking-tight sm:text-5xl">
+        Tanmoy&apos;s Yatra
       </h1>
 
-      <section className="mb-10">
-        <p className="max-w-2xl text-lg text-slate-600">
-          Welcome - find posts grouped by category below. Newest posts appear first.
+      <section className="mb-10 max-w-3xl">
+        <p className="text-xl font-semibold text-slate-700">
+          Travel | Biking | Cinematic Vlogs
+        </p>
+        <p className="mt-4 text-lg leading-8 text-slate-600">
+          I&apos;m Tanmoy Das, a software engineer by profession and a passionate devotee
+          of Lord Shiva. Tanmoy&apos;s Yatra is my heartfelt journey through the roads I
+          ride, the temples I visit, and the stories I gather.
+        </p>
+        <p className="mt-4 text-base leading-7 text-slate-600">
+          From ancient Shiva temples and spiritual spots to everyday bike rides and
+          travel experiences across India, I share real and raw travel stories, mostly
+          in Bengali with occasional Hindi shorts. I&apos;m not a professional vlogger or
+          rider, just someone who loves to explore and help fellow travelers with honest
+          tips on what to do, what to avoid, and the beauty of discovery itself.
         </p>
       </section>
 
@@ -22,7 +34,8 @@ export default function HomePage() {
           <div>
             <h2 className="text-2xl font-semibold tracking-tight">YouTube Channel</h2>
             <p className="mt-2 text-sm text-slate-600">
-              Follow the channel for travel, bike, and service videos from Tanmoy&apos;s Yatra.
+              Follow Tanmoy&apos;s Yatra for travel, biking, temple visits, and cinematic
+              vlog stories from India.
             </p>
           </div>
           <a
@@ -38,7 +51,7 @@ export default function HomePage() {
         <div className="overflow-hidden rounded-xl border border-slate-200">
           <Image
             src="/homeThumbnail.png"
-            alt="Tanmoy's Yatra YouTube Channel"
+            alt="Tanmoy&apos;s Yatra YouTube Channel"
             width={1280}
             height={720}
             className="h-auto w-full object-cover"

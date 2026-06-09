@@ -16,10 +16,63 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Tanmoy's Yatra",
-  description: "Personal blog",
-  icons: {
-    icon: "/logo.ico",
+  title: {
+    default: "Tanmoy's Yatra",
+    template: "%s | Tanmoy's Yatra",
+  },
+
+  description:
+    "Travel blogs, bike rides, temple visits, road trips, and spiritual journeys across India by Tanmoy Das.",
+
+  keywords: [
+    "Tanmoy's Yatra",
+    "Travel Blog",
+    "Bike Ride",
+    "Moto Vlog",
+    "Travel India",
+    "Temple Travel",
+    "West Bengal Tourism",
+    "Road Trip",
+    "Motorcycle Touring",
+    "Shiva Temple",
+    "Travel Guide",
+  ],
+
+  authors: [{ name: "Tanmoy Das" }],
+
+  creator: "Tanmoy Das",
+
+  metadataBase: new URL("https://blog.tanmoysyatraofficial.store"),
+
+  openGraph: {
+    title: "Tanmoy's Yatra",
+    description:
+      "Travel blogs, bike rides, temple visits, and spiritual journeys across India.",
+    url: "https://blog.tanmoysyatraofficial.store",
+    siteName: "Tanmoy's Yatra",
+    locale: "en_IN",
+    type: "website",
+    images: [
+      {
+        url: "/homeThumbnail.png",
+        width: 1200,
+        height: 630,
+        alt: "Tanmoy's Yatra",
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Tanmoy's Yatra",
+    description:
+      "Travel blogs, bike rides, temple visits, and spiritual journeys across India.",
+    images: ["/homeThumbnail.png"],
+  },
+
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 

@@ -59,7 +59,40 @@ export default function HomePage() {
           />
         </div>
       </section>
+      <section className="mb-10 rounded-xl border border-slate-200 bg-card p-5 shadow-md dark:border-slate-800 sm:p-6">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <h2 className="text-2xl font-semibold tracking-tight">
+              Follow Tanmoy&apos;s Yatra
+            </h2>
 
+            <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">
+              Stay connected for ride updates, travel photos, reels,
+              behind-the-scenes content, and community discussions.
+            </p>
+          </div>
+
+          <div className="mt-2 flex flex-wrap gap-3">
+            <a
+              href="https://www.instagram.com/tanmoysyatraofficial"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 px-5 py-2.5 text-sm font-semibold text-white transition-all duration-200 hover:scale-105 hover:opacity-90"
+            >
+              📸 Instagram
+            </a>
+
+            <a
+              href="https://www.facebook.com/profile.php?id=61583363837666"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white transition-all duration-200 hover:scale-105 hover:bg-blue-700"
+            >
+              👍 Facebook
+            </a>
+          </div>
+        </div>
+      </section>
       {posts.length === 0 ? (
         <div className="py-24 text-center">
           <p className="text-lg text-slate-500">No blog posts found.</p>

@@ -77,7 +77,7 @@ export default function HomePage() {
               href="https://www.instagram.com/tanmoysyatraofficial"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 px-5 py-2.5 text-sm font-semibold text-white transition-all duration-200 hover:scale-105 hover:opacity-90"
+              className="inline-flex items-center gap-2 rounded-lg bg-linear-to-r from-pink-500 via-red-500 to-yellow-500 px-5 py-2.5 text-sm font-semibold text-white transition-all duration-200 hover:scale-105 hover:opacity-90"
             >
               📸 Instagram
             </a>

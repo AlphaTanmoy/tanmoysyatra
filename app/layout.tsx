@@ -53,7 +53,17 @@ export const metadata: Metadata = {
     url: "https://blog.tanmoysyatraofficial.store",
     siteName: "Tanmoy's Yatra",
     locale: "en_IN",
+
+    images: [
+      {
+        url: "/logo.png",
+        width: 512,
+        height: 512,
+        alt: "Tanmoy's Yatra",
+      },
+    ],
   },
+   
 
   robots: {
     index: true,

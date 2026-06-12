@@ -1,0 +1,5 @@
+git checkout main
+git pull origin main
+git merge --no-ff dev -m "[merging with main]"
+git push origin main
+git checkout dev

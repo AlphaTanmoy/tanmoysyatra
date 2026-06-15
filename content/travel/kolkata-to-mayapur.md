@@ -2,7 +2,7 @@
 
 title: "কলকাতা থেকে মায়াপুর"
 date: "2026-03-11"
-category: "Bike"
+category: "Travel"
 author: "Tanmoy"
 cover: "/images/honda-cb350-second-service.jpg"
 youtube: "https://youtu.be/Wntql-GmKZE"
